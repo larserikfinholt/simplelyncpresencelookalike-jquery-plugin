@@ -1,0 +1,283 @@
+﻿/* This file is copied from http://lyncwidget.codeplex.com/ * /
+
+/* Mixins */
+
+.border-radius (@radius_top_left: 4px, @radius_top_right: 4px, @radius_bottom_right: 4px, @radius_bottom_left: 4px)
+{
+    -webkit-border-radius:@radius_top_left @radius_top_right @radius_bottom_right @radius_bottom_left;
+    -moz-border-radius:@radius_top_left @radius_top_right @radius_bottom_right @radius_bottom_left;
+    border-radius:@radius_top_left @radius_top_right @radius_bottom_right @radius_bottom_left;
+}
+
+.dropshadow (@px: 2px, @color: #DDD) {
+    -moz-box-shadow: @px @px @px #DDD;
+    -webkit-box-shadow: @px @px @px #DDD;
+    box-shadow: @px @px @px #DDD;
+}
+
+.opacity(@op:100)
+{
+    filter:alpha(opacity=@op);
+    -moz-opacity:@op/100;
+    -khtml-opacity:@op/100;
+    opacity:@op/100;
+}
+
+
+
+
+/* The code */
+
+
+.presenceitem 
+{
+    font-family: Segoe UI;
+    font-size: 11px;
+    
+    position: absolute;
+    width: 300px;
+    padding: 5px;
+    background-color: White;
+    border: 1px solid #999;
+
+	z-index:999;
+    
+    .border-radius;
+    .dropshadow;
+    
+    &:hover
+    {
+        border: 1px solid #C5C9DE;
+        background-image: url('../images/gradient.png');
+        background-repeat:repeat-x;
+            
+        .presenceitemOverlay
+        {
+            float: left;
+            width: 305px;
+            height: 82px;
+        }
+    }
+    
+    .hidden
+    {
+        display: none;
+    }
+    
+    .availability
+    {
+        float: left;
+        width: 8px;
+        height: 50px;
+        .border-radius(2px,0px,0px,2px);
+        
+
+        &.available
+        {
+            border: 1px solid #91FF75;
+            background-image: url('../images/bar_available.png');
+        }
+        &.blocked
+        {
+            border: 1px solid #E83F3F;
+            background-image: url('../images/bar_dnd.png');
+        }
+        &.dnd
+        {
+            border: 1px solid #E83F3F;
+            background-image: url('../images/bar_dnd.png');
+        }
+        &.busy
+        {
+            border: 1px solid #E83F3F;
+            background-image: url('../images/bar_busy.png');
+        }
+        &.away
+        {
+            border: 1px solid #C0C0C0;
+            background-image: url('../images/bar_away.png');
+        }
+        &.offline
+        {
+            border: 1px solid #C0C0C0;
+            background-image: url('../images/bar_away.png');
+        }
+        &.unknown
+        {
+            border: 1px solid #C0C0C0;
+            background-color: #C0C0C0;
+        }
+    }
+    
+    .statusImage
+    {
+        float: left;
+        width: 48px;
+        height: 48px;
+        padding: 1px; /*white border around image */
+        border: 1px solid #777;
+        border-left: 0px;
+    }
+    
+    .sidePanel
+    {
+        float: left;
+        margin-left: 5px;
+        
+        .name
+        {
+            color: #222;
+            font-size: 13px;
+        }
+        
+        .status, .jobtitle
+        {
+            color: #555;
+            font-size: 11px;
+            letter-spacing: 0.3px;
+            margin-top: 2px;
+        }
+    }
+    
+    .buttons
+    {
+        clear: both;
+        float: left;
+        width: 308px;
+        height:25px;
+        margin: 0px -5px -5px -4px;
+
+        
+        .button
+        {
+            float: left;
+            color: #333;
+    
+            margin: 4px 2px 0px 27px;
+            padding: 1px 5px;
+            
+            &.enabled:hover
+            {
+                padding: 0px 4px; /* lower the padding to make room for the border */
+    
+                border: 1px solid #6BC8FF;
+            
+                .border-radius;
+
+                background: #f0f9ff;
+                background: -moz-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f9ff), color-stop(47%,#cbebff), color-stop(100%,#a1dbff));
+                background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%);
+                background: -o-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%);
+                background: -ms-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%);
+                background: linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%);   
+    
+                cursor: pointer;
+            }
+            
+            &.disabled
+            {
+                .opacity(40);
+                cursor: default;
+            }
+
+            &.chatbutton, &.phonebutton
+            {
+                margin-left: 40px;
+            }
+            
+            /* correct image vertical alignment */
+            &.emailbutton > img
+            {
+                margin-top: 1px;
+                margin-bottom: 1px;
+            }
+        
+            &.chatbutton > img
+            {
+                margin-top: 2px;
+            }
+        
+            &.phonebutton > img
+            {
+                margin-bottom: 0px;
+                padding-bottom:2px;
+            }
+
+            > img
+            {
+                margin-right: 6px;
+                vertical-align: middle;
+            }
+        }
+        
+        .phonetooltip
+        {
+            clear:both;
+            margin: 0px 0px 0px 108px;
+
+            width: 200px;
+            
+            border: 1px solid #C5C9DE;
+            background-color: White;
+
+            .dropshadow;
+            
+            .phoneContainer
+            {
+                
+                height: 42px;
+                
+                border-bottom: 1px dashed #CCC;
+                &:last-child {  border-bottom: 0px !important;  }
+                
+                &:hover
+                {
+                    background-image: url('../images/gradient-light.png');
+                    background-repeat:repeat;
+                    
+                    /*remove border right of phone icon */
+                    img
+                    {
+                        border-right: 0px;
+                        margin-right: 1px;
+                    }
+                }
+                
+                img
+                {
+                    vertical-align: middle;
+                    padding: 5px 8px 21px 9px;
+                    border-right: 1px solid #EEE;
+                    float:left;
+                }
+                
+                div
+                {
+                    float:left;
+                    width: 145px;
+                    margin-top:2px;
+                    margin-left: 5px;
+                    
+                    .phone
+                    {
+                        clear:both;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* tmp changes */
+
+#ad-tooltip-background {
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    background-color:rgba(141, 139, 139, 0.01);
+    z-index:99;
+}

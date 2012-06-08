@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="Scripts/jQueryUserInfoFromAd.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="Content/jQueryUserInfoFromAd.less" />
+    <link rel="stylesheet/less" type="text/css" href="Content/PresenceAvailability.less" />
+    <script type="text/javascript" src="Scripts/less-1.1.3.min.js"></script>
+    <style type="text/css">
+        #ad-tooltip {
+        }
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+            $('.jalla').adUserInfo();
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Testing</h1>
+    <p>A list of users</p>
+    <ul>
+        <li>
+            <div class="jalla" data-userid="user1">Lars Erik</div>
+        </li>
+        <li>
+            <div class="jalla" data-userid="larsadfgrik.finholt@bouvet.com">Testing</div>
+        </li>
+        <li>
+            <div class="jalla" data-userid="lars.erik.finholt@gmadafgl.com">sfdsfsdf</div>
+        </li>
+        <li>
+            <div class="jalla" data-userid="lars.edafgdadafgdadfgnholt@gmail.com">adfgdfag</div>
+        </li>
+        <li></li>
+    </ul>
+
+
+    <!--
+    <div class="presenceitem" ><div class="availability busy"></div><img class="statusImage" style="opacity: 1;" src="http://lyncpresence.orbitone.com/StatusPictures/olivier@orbitone.com/busy.jpg">
+        <div class="sidePanel">
+            <div class="name">Olivier Mangelschots</div>
+            <div class="status">Busy</div>
+            <div class="jobtitle">Managing Director</div>
+        </div>
+        <div class="buttons hidden" style="display: none;">
+            <div class="button emailbutton enabled" title="Send an e-mail (Opens your e-mail application)">
+                <img class="emailIcon" src="images/email.png">E-mail</div>
+            <div class="button chatbutton enabled" title="Start a live chat conversation (Opens a pop-up)">
+                <img class="chatIcon" src="images/chat.png">Chat</div>
+            <div class="button phonebutton enabled">
+                <img class="phoneIcon" src="images/phone.png">Phone</div>
+            <div class="phonetooltip hidden" style="display: none;">
+                <div class="phoneContainer" style="">
+                    <img src="images/phone.png">
+                    <div>
+                        <div class="phonedescription">Work</div>
+                        <div class="phone">+3293301520</div>
+                    </div>
+                </div>
+                <div class="phoneContainer" style="border-bottom-width: 0px;">
+                    <img src="images/mobile.png">
+                    <div>
+                        <div class="phonedescription">Mobile</div>
+                        <div class="mobile">+32475690640</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sip hidden">sip:olivier@orbitone.com</div>
+        <div class="canChat hidden">true</div>
+        <div class="email hidden">olivier@orbitone.com</div>
+    </div>-->
+
+
+</body>
+</html>
